@@ -1,0 +1,25 @@
+{
+  "name": "koa-pug-view",
+  "version": "1.0.13",
+  "description": "a pug middleware for koa , with it's own built-in cache ability",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "pug",
+    "view",
+    "middleware",
+    "cache"
+  ],
+  "author": "rosald",
+  "license": "MIT",
+  "dependencies": {
+    "pug": "~2.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rosald/koa-pug-view.git"
+  }
+}
