@@ -1,8 +1,12 @@
 {
   "name": "koa-pug-view",
-  "version": "1.1.16",
-  "description": "a pug middleware for koa , with it's own built-in cache ability",
+  "version": "1.1.17",
+  "description": "a pug middleware for koa, with cache ability",
   "main": "index.js",
+  "exports": {
+    "require": "./index.js",
+    "import": "./mod.mjs"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,12 +15,14 @@
     "pug",
     "view",
     "middleware",
-    "cache"
+    "cache",
+    "cjs",
+    "mjs"
   ],
   "author": "rosald",
   "license": "MIT",
   "dependencies": {
-    "pug": "~2.0.3"
+    "pug": "^3.0.0"
   },
   "repository": {
     "type": "git",
