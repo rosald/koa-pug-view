@@ -2,7 +2,15 @@ const Koa = require('koa');
 const koaPug = require('koa-pug-view');
 
 const app = new Koa();
-koaPug(app);
+
+// The flowing are considered TOTALLY same:
+koaPug(app); // default
+koaPug(app, 'views', false, 'render'); // using listed arguments
+koaPug(app, {
+  viewDir: 'views',
+  needCache: false,
+  methodName: 'render',
+}); // using option object
 
 app.use((ctx, next) => {
   ctx.state.firstname = 'John';
@@ -11,24 +19,38 @@ app.use((ctx, next) => {
 
 app.listen(3003);
 
-//-----options-----
-//koa-pug-view returns a function , and receives 4 arguments
-//one required , the left 3 not required
+// -----options-----
 
-//app -- koa application
-//  required
+// Using listed arguments:
+// koa-pug-view returns a function , and receives 4 arguments
+// one required, the left 3 not required
 
-//viewdir -- where to put pug file
-//  it should be directly inside 'Project root directory'
-//  default to 'views'
-//  not required
+// app -- koa application instance
+// required
 
-//cache -- whether compiled functions be cached
-//  default to false
-//  not required
-//  if 'process.env.NODE_ENV' is set to 'production'
-//  it will always be true
+// viewDir -- where pug files locate in
+// it should be directly inside 'Project root directory'
+// default to 'views'
+// not required
 
-//methodname -- the method name add to app.context(the prototype from which ctx is created)
-//  default to 'render'
-//  not required
+// needCache -- whether enable the cache ability(compiled functions be cached）
+// default to false
+// not required
+// if 'process.env.NODE_ENV' is set to 'production'
+// it will ALWAYS be true
+
+// methodName -- the method name add to app.context(the prototype from which ctx is created)
+// default to 'render'
+// not required
+
+// 2 Using option object
+// it can also receive an option object as the 2nd argument
+// signature as following, usage is same as above
+
+// {
+//   viewDir?: string,
+//   needCache?: boolean,
+//   methodName?: string,
+// }
+
+// the 2nd option objectm will overwrite the other listed arfguments
