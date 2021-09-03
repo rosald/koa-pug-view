@@ -11,9 +11,11 @@
  * ```
  * @returns void
  */
-export default function KoaPug(
+declare function KoaPug(
   app: any,
   viewDirOrOption?: string | { viewDir?: string; needCache?: boolean; methodName?: string },
   argNeedCache?: boolean,
   argMethodname?: string
 ): void;
+
+export = KoaPug;
